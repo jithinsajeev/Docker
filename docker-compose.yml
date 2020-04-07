@@ -10,7 +10,7 @@ services:
        MYSQL_ROOT_PASSWORD: Root@123
        MYSQL_DATABASE: db1
        MYSQL_USER: dbuser1
-       MYSQL_PASSWORD: Mascot@123
+       MYSQL_PASSWORD: dbpasswd
 
    wordpress:
      depends_on:
@@ -22,7 +22,7 @@ services:
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: dbuser1
-       WORDPRESS_DB_PASSWORD: Mascot@123
+       WORDPRESS_DB_PASSWORD: dbpasswd
        WORDPRESS_DB_NAME: db1
 volumes:
     db_data: {}
