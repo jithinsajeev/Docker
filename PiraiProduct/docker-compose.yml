@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+   db:
+     image: postgres:12.2
+     volumes:
+       - /home/docker/volumes/PiraiDb:/var/lib/postgresql/data
+     restart: always
+     environment:
+       POSTGRES_PASSWORD: newpostgres
+
+   web:
+     depends_on:
+       - db
+     image: registry.gitlab.com/loganathanr/jays-gala-app:5089f488
+     ports:
+       - "8085:8084"
+     restart: always
+   
+   adminer:
+     depends_on:
+       - db
+     image: adminer
+     ports:
+       - "8081:8080"
+     restart: always
